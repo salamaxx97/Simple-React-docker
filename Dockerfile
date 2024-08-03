@@ -10,15 +10,11 @@ RUN npm run build
 
 #########################
 
-FROM node:lts-alpine3.20
+FROM nginx:alpine
 
-WORKDIR /app
+COPY --from=builder /app/build /usr/share/nginx/html
 
-COPY --from=builder /app/build /app/build
+EXPOSE 80
 
-RUN npm install -g serve
-
-EXPOSE 3000
-
-CMD ["serve", "-s", "build"]
+CMD ["nginx", "-g", "daemon off;"]
 
