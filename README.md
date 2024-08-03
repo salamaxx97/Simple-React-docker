@@ -3,7 +3,6 @@
 ### to build image 
 ```
 docker bulid -t imagename:tag .
-docker run  -p 3000:3000 imagename:tag
 ```
 
 or 
@@ -12,7 +11,12 @@ or
 docker-compose up
 ```
 
-### test if it is working
+### test if it is working v1 ,v2
 ```
 curl localhost:3000
+
+```
+### test if it is working v3
+```
+curl localhost:80
 ```
